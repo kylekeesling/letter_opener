@@ -12,7 +12,7 @@ module LetterOpener
       messages << new(mail, options.merge(part: mail.html_part)) if mail.html_part
       messages << new(mail, options.merge(part: mail.text_part)) if mail.text_part
       messages << new(mail, options) if messages.empty?
-      messages.each(&:render)
+      messages.each(&:prerender)
       messages.sort
     end
 
